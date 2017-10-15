@@ -9,6 +9,7 @@ greetings = [
     "안녕 얘들아",
     "I like cheese",
     "oopsie poopsie",
+    "Hello Fish",
 ]
 
 print(random.choice(greetings))
