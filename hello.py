@@ -17,6 +17,7 @@ greetings = [
     "I like cheese",
     "oopsie poopsie",
     "Hello Fish",
+    "ih",
 ]
 
 print(random.choice(greetings))
