@@ -20,7 +20,8 @@ greetings = [
     "Bonjour",
     "life is hard",
     "ih",
-    "Greetings, foolish mortal"
+    "Greetings, foolish mortal",
+    "你好"
 ]
 
 print(random.choice(greetings))
