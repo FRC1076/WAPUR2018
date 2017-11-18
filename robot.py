@@ -1,6 +1,42 @@
 import wpilib
 import ctre
 
+from magicbot import StateMachine, state, timed_state
+
+class DriveControl(StateMachine):
+    motor = Motor
+
+    def forward(self):
+        self.engage()
+
+    @state(first=True)
+    def prepare_to_forward(self):
+        self.motor.enable()
+
+        if self.motor.is_ready():
+            self.next_state_now('moving')
+
+    @timed_state(duration=1, must_finish=True)
+    def moving(self):
+        self.motor.enable()
+        self.motor()
+
+class DriveTrain:
+
+    drive_motor = wpilib.RobotDrive
+
+    def __init__(self):
+        self.enabled = False
+    
+    def __enable__(self):
+        self.enabled = True
+
+    def forward(self, speed, time):
+        self = 
+        speed = 
+        time =
+
+
 class WAPURBot(wpilib.IterativeRobot):
     def robotInit(self):
         self.l_motor = ctre.CANTalon(3)
@@ -20,6 +56,8 @@ class WAPURBot(wpilib.IterativeRobot):
     def autonomousPeriodic(self):
         self.l_motor.set(1)
         self.r_motor.set(-1)
+    def forwardCommand(speed, time):
+        speed = self.wheel(1)
 
 if __name__ == '__main__':
     wpilib.run(WAPURBot)
