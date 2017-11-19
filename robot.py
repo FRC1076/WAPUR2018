@@ -22,5 +22,4 @@ class WAPURBot(wpilib.IterativeRobot):
         self.r_motor.set(-1)
 
 if __name__ == '__main__':
-    wpilib.run(WAPURBot, physics_enabled=True)
-
+    wpilib.run(WAPURBot)
