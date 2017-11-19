@@ -9,11 +9,11 @@ class WAPURBot(wpilib.IterativeRobot):
         self.r_motor2 = ctre.CANTalon(2) 
         self.robot_drive = wpilib.RobotDrive(self.l_motor, self.l_motor2, self.r_motor, self.r_motor2) 
         self.stick = wpilib.Joystick(0) 
+        self.accelerometer = wpilib.BuiltInAccelerometer()
 
     def teleopPeriodic(self):
         self.robot_drive.arcadeDrive(self.stick)
         print(self.l_motor.get())
-        self.accelerometer = wpilib.BuiltInAccelerometer()
 
     def autonomousInit(self): 
         print("Auto Init") 
