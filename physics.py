@@ -7,4 +7,3 @@ class PhysicsEngine:
 		self.physics_controller = physics_controller
 
 	def update_sim(self, hal_data, now, dt):
-		pass
