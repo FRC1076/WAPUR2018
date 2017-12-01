@@ -4,7 +4,7 @@ import ctre
 from magicbot import StateMachine, state, timed_state
 
 class DriveControl(StateMachine):
-    motor = Motor
+    motor = ctre.CANTalon
 
     def forward(self):
         self.engage()
@@ -32,9 +32,7 @@ class DriveTrain:
         self.enabled = True
 
     def forward(self, speed, time):
-        self = 
-        speed = 
-        time =
+        pass
 
 
 class WAPURBot(wpilib.IterativeRobot):
