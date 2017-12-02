@@ -26,7 +26,6 @@ class WAPURBot(wpilib.IterativeRobot):
         operator_left_y = self.operator.getY(LEFT)
         self.catapult_motor.set(operator_left_y)
 
-        
     def autonomousInit(self):
         print("Auto Init")
 
@@ -36,4 +35,5 @@ class WAPURBot(wpilib.IterativeRobot):
 
 
 if __name__ == '__main__':
-    wpilib.run(WAPURBot)
+    wpilib.run(WAPURBot, physics_enabled=True)
+
