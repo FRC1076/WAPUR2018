@@ -14,13 +14,17 @@ class WAPURBot(wpilib.IterativeRobot):
         self.robot_drive.arcadeDrive(self.stick)
         print(self.l_motor.get())
 
+        drive_right_y = self.driver.getY(RIGHT)
+        driver_left_x = self.driver.getX(LEFT)
+        self.robot_drive.arcadeDrive(moveValue=right_y, rotateValue=left_x)
+        operator_left_y = self.operator.getY(LEFT)
+        self.catapult_motor.set(operator_left_y)
+
     def autonomousInit(self):
         print("Auto Init")
 
     def autonomousPeriodic(self):
-        self.l_motor.set(1)
-        self.r_motor.set(-1)
-
+        self.robot_drive.drive(1.0, 0.5)
+        
 if __name__ == '__main__':
     wpilib.run(WAPURBot, physics_enabled=True)
-
