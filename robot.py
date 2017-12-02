@@ -3,8 +3,8 @@ import ctre
 
 from wpilib.interfaces import GenericHID
 
-LEFT = GenericHID.kLeft
-RIGHT = GenericHID.kRight
+LEFT = GenericHID.Hand.kLeft
+RIGHT = GenericHID.Hand.kRight
 
 class WAPURBot(wpilib.IterativeRobot):
     def robotInit(self):
@@ -20,9 +20,9 @@ class WAPURBot(wpilib.IterativeRobot):
         self.operator = wpilib.XboxController(1)
 
     def teleopPeriodic(self):
-        drive_right_y = self.driver.getY(RIGHT)
+        driver_right_y = self.driver.getY(RIGHT)
         driver_left_x = self.driver.getX(LEFT)
-        self.robot_drive.arcadeDrive(moveValue=right_y, rotateValue=left_x)
+        self.robot_drive.arcadeDrive(moveValue=driver_right_y, rotateValue=driver_left_x)
         operator_left_y = self.operator.getY(LEFT)
         self.catapult_motor.set(operator_left_y)
 
@@ -33,6 +33,7 @@ class WAPURBot(wpilib.IterativeRobot):
     def autonomousPeriodic(self):
         self.l_motor.set(1)
         self.r_motor.set(-1)
+
 
 if __name__ == '__main__':
     wpilib.run(WAPURBot)
