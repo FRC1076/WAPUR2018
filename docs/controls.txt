@@ -1,0 +1,25 @@
+driver:
+  left joystick:
+      - turning
+      - difference of speed between two sets of wheels
+      - x y coordinates
+          - x positive turns right
+          - x negative turns left
+          - higher absolute value = faster/sharper turn
+  right joystick:
+      - moving and speed
+      - x y coordinates
+        - x   ignore
+        - y positive: forward, higher the number, faster the speed
+            negative: backwards, higher the number, faster the speed
+
+operator:
+  - left joystick:
+    - y value: positive: up
+               negative: down
+
+  right trigger
+      -
+
+  left trigger
+      -
