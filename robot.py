@@ -1,7 +1,12 @@
 import wpilib
 import ctre
+import magicbot
+import robotpy_ext
 
+
+from robotpy_ext.autonomous import AutonomousModeSelector
 from magicbot import StateMachine, state, timed_state
+
 
 class DriveControl(StateMachine):
     motor = ctre.CANTalon
@@ -43,6 +48,7 @@ class WAPURBot(wpilib.IterativeRobot):
         self.r_motor2 = ctre.CANTalon(2)
         self.robot_drive = wpilib.RobotDrive(self.l_motor, self.l_motor2, self.r_motor, self.r_motor2)
         self.stick = wpilib.Joystick(0)
+        self.automodes = AutonomousModeSelector('autonomous')
 
     def teleopPeriodic(self):
         self.robot_drive.arcadeDrive(self.stick)
@@ -52,8 +58,8 @@ class WAPURBot(wpilib.IterativeRobot):
         print("Auto Init")
 
     def autonomousPeriodic(self):
-        self.l_motor.set(1)
-        self.r_motor.set(-1)
+        self.automodes.run()
+
     def forwardCommand(speed, time):
         speed = self.wheel(1)
 
